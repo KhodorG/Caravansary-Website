@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: #f8f1e4;
+    background-color: #F8F1E4;
 }
 
 .navbar {
@@ -14,7 +14,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 25px 35px;
-    background-color: #d5b895;
+    background-color: #C4A35A;
     position: relative;
 }
 
@@ -45,10 +45,10 @@ body {
 }
 
 .nav-links li a:hover {
-    background-color: #c4a354;
+    background-color: #D17A22;
 }
 
-.dropdown {
+/* .dropdown {
     position: relative;
 }
 
@@ -79,7 +79,7 @@ body {
 
 .dropdown-content li {
     list-style: none;
-}
+} */
 
 .burger-menu {
     font-size: 2rem;
@@ -90,4 +90,101 @@ body {
 #menu-toggle {
     display: none;
 }
+
+@media (max-width: 768px) {
+    .burger-menu {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: #C4A35A;
+        text-align: center;
+        padding: 10px 0;
+        z-index: 2;
+    }
+
+    #menu-toggle:checked + .burger-menu + .nav-links {
+        display: flex;
+    }
+}
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(101, 67, 33, 0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #FAFAFA;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+.overlay h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.overlay p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    max-width: 700px;
+    line-height: 1.6;
+    color: #D5B895;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    color: #FAFAFA;
+    background: #B8860B;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+    margin: 10px;
+}
+
+.cta-button:hover {
+    background: #A45A2A;
+}
+
+
 

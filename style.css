@@ -52,7 +52,7 @@ header {
 }
 
 .nav-links li a:hover {
-    background-color: #c9a649;
+    border-bottom: 1px dashed #c9a649;  
 }
 
 .burger-menu {
@@ -319,6 +319,73 @@ footer {
         margin-bottom: 20px;
     }
 }
+
+.about-page {
+    padding: 60px 20px;
+}
+
+.about-container1 {
+    max-width: 800px;
+    margin: auto;
+    background-color: #000000;
+    border: 2px solid #E7C065;
+    padding: 40px;
+    border-radius: 15px 50px;
+    box-shadow: 0 0 10px rgba(231, 192, 101, 0.5);
+}
+
+.about-container1 h1 {
+    color: #E7C065;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.about-container1 h2 {
+    color: #E7C065;
+    margin-top: 50px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #E7C065;
+    padding-bottom: 5px;
+    max-width: 250px;
+}
+
+.about-container1 p {
+    color: #e6c07b;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.about-container1 ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 20px;
+}
+
+.about-container1 ul li {
+    color: #e6c07b;
+    padding: 5px 0;
+    border-left: 3px solid #E7C065;
+    margin-left: 10px;
+    padding-left: 10px;
+}
+
+.team-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: #E7C065;
+    text-decoration: none;
+    border: 1px solid #E7C065;
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.team-link:hover {
+    background: #E7C065;
+    color: #000000;
+}
+
+
 
 
 

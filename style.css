@@ -3,30 +3,38 @@
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
-    background-color: #F8F1E4;
+    background-color: #121212;
+    color: #e6c07b;
+    
+}
+
+header {
+    background-color: #1a1a1a;
 }
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 25px 35px;
-    background-color: #8B5E3B;
+    padding: 15px 35px;
+    background-color: #000000;
     position: relative;
 }
 
 .logo {
-    font-size: 2.5rem;
-    text-align: center;
+    display: flex;
+    align-items: center;
 
 }
 
-.logo a {
-    text-decoration: none;
-    color: #D5B895;
+.logo img {
+    height: 70%;
+    width: auto;
+    max-height: 120px;
 }
 
 .nav-links {
@@ -36,55 +44,22 @@ body {
 }
 
 .nav-links li a {
-    display: block;
     text-decoration: none;
-    color: #D5B895;
+    color: #E7C065;
     padding: 5px 10px;
     font-size: 1.2rem;
     transition: 0.3s;
 }
 
 .nav-links li a:hover {
-    background-color: #B8860B;
+    background-color: #c9a649;
 }
-
-/* .dropdown {
-    position: relative;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #d5b895;
-    min-width: 250px;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    padding-top: 5px;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown-content a {
-    text-decoration: none;
-    color: white;
-    padding: 12px 16px;
-    display: block;
-}
-
-.dropdown-content a:hover {
-    background-color: #654321;
-}
-
-.dropdown-content li {
-    list-style: none;
-} */
 
 .burger-menu {
     font-size: 2rem;
     cursor: pointer;
     display: none;
+    color: #E7C065;
 }
 
 #menu-toggle {
@@ -103,10 +78,15 @@ body {
         top: 90px;
         left: 0;
         width: 100%;
-        background: #D5B895;
+        background: #121212;
         text-align: center;
         padding: 10px 0;
         z-index: 2;
+        margin-bottom: 10px;
+    }
+
+    .nav-links a {
+        border-bottom: 1px dashed #E7C065;
     }
 
     #menu-toggle:checked + .burger-menu + .nav-links {
@@ -137,11 +117,9 @@ body {
     left: 50%;
     width: 100%;
     transform: translate(-50%, -50%);
-    background: rgba(101, 67, 33, 0.6);
+    background: rgba(0, 0, 0, 0.7);
     text-align: center;
-    color: #FAFAFA;
     padding: 20px;
-    font-family: 'Arial', sans-serif;
 }
 
 .overlay h1 {
@@ -152,6 +130,7 @@ body {
     max-width: 90%;
     margin-left: auto;
     margin-right: auto;
+    color: #E7C065;
 }
 
 .overlay p {
@@ -159,7 +138,7 @@ body {
     margin-bottom: 30px;
     max-width: 700px;
     line-height: 1.6;
-    color: #D5B895;
+    color: #c9a649;
     margin-left: auto;
     margin-right: auto;
 }
@@ -175,16 +154,17 @@ body {
     display: inline-block;
     padding: 15px 30px;
     font-size: 1.2rem;
-    color: #FAFAFA;
-    background: #B8860B;
+    color: #000000;
+    background: #E7C065;
     text-decoration: none;
     border-radius: 5px;
+    border: 2px solid #c9a649;
     transition: background 0.3s ease;
     margin: 10px;
 }
 
 .cta-button:hover {
-    background: #A45A2A;
+    background: #c9a649;
 }
 
 @media (max-width: 768px) {
@@ -223,9 +203,33 @@ body {
     }
 }
 
+.about-us {
+    line-height: 1.5;
+    color: #E7C065;
+    text-align: center;
+    padding: 60px 20px;
+    border-top: 3px solid #E7C065;
+}
+
+.about-container h2 {
+    margin-bottom: 20px;
+}
+
+.contact-link {
+    color: #E7C065;
+    border-bottom: 2px solid #E7C065;
+    transition: color 0.3s, border-bottom 0.3s;
+    text-decoration: none;
+}
+
+.contact-link:hover {
+    color: #c9a649;
+    border-bottom: 2px solid #c9a649;
+}
+
 footer {
-    background: #8B5E3B;
-    color: #FAFAFA;
+    background: #000000;
+    color: #E7C065;
     padding: 40px 20px;
     font-family: 'Arial', sans-serif;
 }
@@ -240,7 +244,7 @@ footer {
 }
 
 .footer-brand h2 {
-    color: #D5B895;
+    color: #E7C065;
     font-size: 1.8rem;
     margin-bottom: 10px;
 }
@@ -261,14 +265,14 @@ footer {
 }
 
 .footer-links ul li a, .footer-info ul li a {
-    color: #D5B895;
+    color: #E7C065;
     text-decoration: none;
     font-size: 1rem;
     transform: color 0.3s ease;
 }
 
 .footer-links ul li a:hover, .footer-info ul li a:hover {
-    color: #B8860B;
+    color: #c9a649;
 }
 
 .footer-info ul li {
@@ -296,13 +300,13 @@ footer {
     margin-right: 10px;
     display: inline-block;
     font-size: 1.5rem;
-    color: #D5B895;
+    color: #E7C065;
     transition: opacity 0.3s ease, color 0.3s ease;
 }
 
 .social-icons a:hover {
     opacity: 0.7;
-    color: #B8860B;
+    color: #c9a649;
 }
 
 @media (max-width: 768px) {

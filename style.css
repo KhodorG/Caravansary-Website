@@ -243,6 +243,16 @@ footer {
     max-width: 1200px;
     margin: auto;
     text-align: left;
+    gap: 65px;
+    align-items: flex-start;
+}
+
+.footer-brand,
+.footer-links,
+.footer-info,
+.footer-legal {
+    flex: 1;
+    min-width: 250px;
 }
 
 .footer-brand h2 {
@@ -257,23 +267,31 @@ footer {
     line-height: 1.5;
 }
 
-.footer-links ul, .footer-info ul {
+.footer-links ul,
+.footer-info ul,
+.footer-legal ul {
     list-style: none;
     padding: 0;
 }
 
-.footer-links ul li, .footer-info ul li {
+.footer-links ul li,
+.footer-info ul li, 
+.footer-legal ul li {
     margin-bottom: 8px;
 }
 
-.footer-links ul li a, .footer-info ul li a {
+.footer-links ul li a,
+.footer-info ul li a, 
+.footer-legal ul li a {
     color: #E7C065;
     text-decoration: none;
     font-size: 1rem;
     transform: color 0.3s ease;
 }
 
-.footer-links ul li a:hover, .footer-info ul li a:hover {
+.footer-links ul li a:hover, 
+.footer-info ul li a:hover
+.footer-legal ul li a:hover {
     color: #c9a649;
 }
 
@@ -317,7 +335,7 @@ footer {
         text-align: center;
     }
 
-    .footer-brand, .footer-links, .footer-info {
+    .footer-brand, .footer-links, .footer-info, .footer-legal {
         margin-bottom: 20px;
     }
 }
@@ -453,6 +471,28 @@ footer {
     text-align: left;
 }
 
+.services-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn-services {
+    display: inline-block;
+    background-color: #E7C065;
+    color: #000000;
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s ease-in-out;
+}
+
+.btn-services:hover {
+    background-color: #c9a14a;
+    color: #FAFAFA;
+}
+
 .investor-opportunities {
     padding: 80px 20px;
     position: relative;
@@ -509,6 +549,28 @@ footer {
     text-align: center;
     margin-top: 30px;
     color: #E7C065;
+}
+
+.investor-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn-investor {
+    display: inline-block;
+    background-color: #E7C065;
+    color: #000000;
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s ease-in-out;
+}
+
+.btn-investor:hover {
+    background-color: #c9a14a;
+    color: #FAFAFA;
 }
 
 .contact-forms {

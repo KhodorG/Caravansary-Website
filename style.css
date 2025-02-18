@@ -830,6 +830,24 @@ footer {
     letter-spacing: 2px;
 }
 
+.explore-heading {
+    margin-top: 20px;
+}
+
+.explore-section-title {
+    font-size: 1.7rem;
+    color: #E7C065;
+    margin-bottom: 20px;
+}
+
+.explore-intro {
+    font-size: 1.1rem;
+    color: #e6c07b;
+    line-height: 1.5;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
 .explore-opportunities-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));;
@@ -953,9 +971,9 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    .explore-cta-button {
+    .explore-cta h2.explore-cta-button {
         padding: 15px 30px;
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
 }
 
@@ -1211,7 +1229,7 @@ footer {
 .nda-agreement-section p {
     margin: 5px 0;
     font-size: 1rem;
-    line-height: 1.5;
+    line-height: 1.6;
     word-wrap: break-word; /* Ensures text wraps within container */
     overflow-wrap: break-word; /* Same as word-wrap but newer standard */
     max-width: 100%; /* Prevents overflow */

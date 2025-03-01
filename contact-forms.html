@@ -44,7 +44,8 @@
         <div class="form-section" id="general-inquiry">
 
             <h2>General Inquiry Form</h2>
-            <form>
+            <form id="GeneralInquiryForm" action="submit-form.php" method="POST">
+                <input type="hidden" name="form_type" value="general_inquiry">
                 <div class="form-group">
                     <label for="gi-name">Full Name</label>
                     <input type="text" id="gi-name" name="full-name" required>
@@ -85,7 +86,8 @@
         <div class="form-section" id="investor-screening">
 
             <h2>Investor Screening Form</h2>
-            <form>
+            <form id="InvestorScreeningForm" action="submit-form.php" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="form_type" value="investor_screening">
                 <div class="form-group">
                     <label for="is-name">Full Name &amp; Contact Details</label>
                     <input type="text" id="is-name" name="full-name" required>
@@ -150,7 +152,8 @@
         <div class="form-section" id="strategic-partnership">
 
             <h2>Strategic Partnership Form</h2>
-            <form>
+            <form id="StrategicPartnershipForm" action="submit-form.php" method="POST">
+                <input type="hidden" name="form_type" value="strategic_partnership">
                 <div class="form-group">
                     <label for="sp-company">Company Name &amp; Website</label>
                     <input type="text" id="sp-company" name="company" required>
@@ -214,7 +217,8 @@
         <div class="form-section" id="media-press">
 
             <h2>Media &amp; Press Inquiry Form</h2>
-            <form>
+            <form id="MediaPressForm" action="submit-form.php" method="POST">
+                <input type="hidden" name="form_type" value="media_press">
                 <div class="form-group">
                     <label for="mp-name">Full Name &amp; Contact Details</label>
                     <input type="text" id="mp-name" name="full-name" required>
@@ -237,7 +241,7 @@
 
                 <div class="form-group">
                     <label for="mp-deadline">Deadline for Response</label>
-                    <input type="date" id="mp-deadline" name="Deadline" required>
+                    <input type="date" id="mp-deadline" name="deadline" required>
                 </div>
 
                 <button type="submit" class="submit-btn">Submit</button>

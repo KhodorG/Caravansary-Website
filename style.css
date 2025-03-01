@@ -124,6 +124,25 @@ header {
     #menu-toggle:checked + .burger-menu + .nav-links {
         display: flex;
     }
+
+    dropdown-menu {
+        display: none;
+        position: relative; /* No absolute positioning to stay inside the mobile menu */
+        background-color: #1a1a1a;
+        width: 100%;
+        padding: 5px 0;
+    }
+
+    .dropdown-menu a {
+        display: block;
+        padding: 10px;
+        color: #E7C065;
+    }
+
+    /* Make Dropdown Expand on Click */
+    .dropdown.active .dropdown-menu {
+        display: block;
+    }
 }
 
 .hero {

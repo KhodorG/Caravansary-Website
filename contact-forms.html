@@ -89,13 +89,18 @@
             <form id="InvestorScreeningForm" action="submit-form.php" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="form_type" value="investor_screening">
                 <div class="form-group">
-                    <label for="is-name">Full Name &amp; Contact Details</label>
+                    <label for="is-name">Full Name</label>
                     <input type="text" id="is-name" name="full-name" required>
                 </div>
 
                 <div class="form-group">
                     <label for="is-company">Company Name &amp; Position</label>
                     <input type="text" id="is-company" name="company" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="gi-email">Email Address</label>
+                    <input type="email" id="gi-email" name="email" required>
                 </div>
 
                 <div class="form-group">
@@ -154,9 +159,20 @@
             <h2>Strategic Partnership Form</h2>
             <form id="StrategicPartnershipForm" action="submit-form.php" method="POST">
                 <input type="hidden" name="form_type" value="strategic_partnership">
+
+                <div class="form-group">
+                    <label for="is-name">Full Name</label>
+                    <input type="text" id="is-name" name="full-name" required>
+                </div>
+
                 <div class="form-group">
                     <label for="sp-company">Company Name &amp; Website</label>
                     <input type="text" id="sp-company" name="company" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="gi-email">Email Address</label>
+                    <input type="email" id="gi-email" name="email" required>
                 </div>
 
                 <div class="form-group">
@@ -220,8 +236,13 @@
             <form id="MediaPressForm" action="submit-form.php" method="POST">
                 <input type="hidden" name="form_type" value="media_press">
                 <div class="form-group">
-                    <label for="mp-name">Full Name &amp; Contact Details</label>
+                    <label for="mp-name">Full Name</label>
                     <input type="text" id="mp-name" name="full-name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="gi-email">Email Address</label>
+                    <input type="email" id="gi-email" name="email" required>
                 </div>
 
                 <div class="form-group">

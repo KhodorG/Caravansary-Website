@@ -17,13 +17,13 @@ function sendEmail($to, $subject, $body)
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com'; // Replace with your SMTP server
         $mail->SMTPAuth = true;
-        $mail->Username = 'khodorghalem@gmail.com'; // Your email
-        $mail->Password = 'lpab aqip gjkd xyak';   // Your email password
+        $mail->Username = getenv('MAIL_USERNAME'); // Your email
+        $mail->Password = getenv('MAIL_PASSWORD');   // Your email password
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = 587;
 
         // Sender & recipient
-        $mail->setFrom('khodorghalem@gmail.com', 'Caravansary Capital');
+        $mail->setFrom(getenv('MAIL_USERNAME'), 'Caravansary Capital');
         $mail->addAddress($to);
 
         // Email content
@@ -49,10 +49,25 @@ try {
     
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $form_type = $_POST['form_type'] ?? '';
+        $isSuccess = false; // This variable will determine if the submission is successful.
+    
 
+        $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL); // Sanitize email
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            echo "Invalid email address";
+            exit;
+        }
+
+    
         switch ($form_type) {
             case 'general_inquiry':
-                $email = $_POST['email'] ?? ''; // Ensure email is set
+                
+                // Sanitize other inputs
+                $full_name = htmlspecialchars($_POST['full-name']);
+                $inquiry_type = htmlspecialchars($_POST['inquiry-type']);
+                $message = htmlspecialchars($_POST['message']);
+                $consent = isset($_POST['consent']) ? true : false;
+
                 $sql = "INSERT INTO general_inquiry (full_name, email, inquiry_type, message, consent) 
                         VALUES (:full_name, :email, :inquiry_type, :message, :consent)";
                 $stmt = $pdo->prepare($sql);
@@ -80,10 +95,11 @@ try {
                     <p>Best regards,<br>Caravansary Capital</p>
                     ");
                 }
-
+                $isSuccess = true;
                 break;
 
             case 'investor_screening':
+
                 // Process file upload
                 $credentials = null;
                 if (isset($_FILES['business-credentials']) && $_FILES['business-credentials']['error'] == 0) {
@@ -124,7 +140,15 @@ try {
                 }
 
                 // Prepare the SQL query for investor_screening form
-                $email = $_POST['email'] ?? ''; // Ensure email is set
+                // Sanitize other inputs
+                $full_name = htmlspecialchars($_POST['full-name']);
+                $company = htmlspecialchars($_POST['company']);
+                $experience = htmlspecialchars($_POST['experience']);
+                $investment_range = htmlspecialchars($_POST['investment-range']);
+                $reason = htmlspecialchars($_POST['reason']);
+                $hear_about_us = htmlspecialchars($_POST['hear']);
+                $consent = isset($_POST['confidentiality']) ? true : false;
+
                 $sql = "INSERT INTO investor_screening (full_name, company, email, experience, investment_range, reason, hear_about_us, credentials, consent) 
                         VALUES (:full_name, :company, :email, :experience, :investment_range, :reason, :hear_about_us, :credentials, :consent)";
                 $stmt = $pdo->prepare($sql);
@@ -157,10 +181,21 @@ try {
                     <a href='http://www.CaravansaryCapital.com'>www.CaravansaryCapital.com</a> | <a href='mailto:Invest@CaravansaryCapital.com'>Invest@CaravansaryCapital.com</a>"
                     );
                 }
+                $isSuccess = true;
                 break;
 
             case 'strategic_partnership':
-                $email = $_POST['email'] ?? ''; // Ensure email is set
+
+                $full_name = htmlspecialchars($_POST['full-name']);
+                $company = htmlspecialchars($_POST['company']);
+                $sector = htmlspecialchars($_POST['sector']);
+                $revenue = htmlspecialchars($_POST['revenue']);
+                $reason = htmlspecialchars($_POST['reason']);
+                $interest = htmlspecialchars($_POST['interest']);
+                $goals = htmlspecialchars($_POST['goals']);
+                $engagement = htmlspecialchars($_POST['engagement']);
+                $consent = isset($_POST['confidentiality']) ? true : false;
+
                 $sql = "INSERT INTO strategic_partnership (full_name, company, email, sector, revenue, interest, goals, engagement, consent) 
                         VALUES (:full_name, :company, :email, :sector, :revenue, :interest, :goals, :engagement, :consent)";
                 $stmt = $pdo->prepare($sql);
@@ -192,12 +227,19 @@ try {
                     <p>Best regards,<br>Caravansary Capital</p>
                     ");
                 }
+                $isSuccess = true;
                 break;
 
             case 'media_press':
-                $email = $_POST['email'] ?? ''; // Ensure email is set
+                
+                $full_name = htmlspecialchars($_POST['full-name']);
+                $experience = htmlspecialchars($_POST['experience']);
+                $media_outlet = htmlspecialchars($_POST['media-outlet']);
+                $inquiry = htmlspecialchars($_POST['inquiry']);
+                $deadline = htmlspecialchars($_POST['deadline']);
+
                 $sql = "INSERT INTO media_press (full_name, email, media_outlet, inquiry, deadline) 
-                        VALUES (:full_name, :email :media_outlet, :inquiry, :deadline)";
+                        VALUES (:full_name, :email, :media_outlet, :inquiry, :deadline)";
                 $stmt = $pdo->prepare($sql);
                 $stmt->execute([
                     ':full_name' => $_POST['full-name'],
@@ -223,6 +265,7 @@ try {
                     <p>Best regards,<br>Caravansary Capital</p>
                     ");
                 }
+                $isSuccess = true;
                 break;
 
             default:
@@ -231,15 +274,29 @@ try {
                 echo "<pre>";
                 print_r($_POST); // Displays all the form data
                 echo "</pre>";
+                $isSuccess = false;
                 exit; // Stops further execution after printing
         }
 
-        echo "Form submitted successfully!";
-
     }
 
-    echo "Connected to PostgreSQL successfully";
+    if ($isSuccess) {
+                    // Success alert: This will trigger the SweetAlert2 success message
+                    echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
+                    echo "<script>
+                            window.onload = function() {
+                                Swal.fire({
+                                    title: 'Success!',
+                                    text: 'Your form has been successfully submitted.',
+                                    icon: 'success'
+                                }).then(function() {
+                                    window.location.href = 'contact-forms.html';
+                            });
+                        }
+                        </script>";
+                }
 } catch (PDOException $e) {
-    die("connection failed: " . $e->getMessage());
+    error_log("connection failed: " . $e->getMessage());
+    exit();
 }
 ?>
